@@ -3,6 +3,12 @@ package example
 import scala.annotation.tailrec
 
 object Lists {
+  def calculate(list: List[Check]): Seq[String] = {
+    list
+      .flatMap(x => x.product.filter(x => x._2 % 1 == 0)
+      .map(x => x._1))
+  }
+
   /**
    * This method computes the sum of all elements in the list xs. There are
    * multiple techniques that can be used for implementing this method, and

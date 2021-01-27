@@ -1,7 +1,7 @@
 package example
 
+import example.Lists.calculate
 import org.junit._
-import org.junit.Assert.assertEquals
 
 /**
  * This class implements a JUnit test suite for the methods in object
@@ -12,6 +12,13 @@ import org.junit.Assert.assertEquals
  * To run this test suite, start "sbt" then run the "test" command.
  */
 class ListsSuite {
+
+  @Test
+  def productNamesWithoutKopecks() : Unit = {
+    val checks = List(Check("1", Seq("Iphone" -> 1.0)), Check("2", Seq("Samsung" -> 2.2)))
+    val test = calculate(checks)
+    assert(test.head == "Iphone")
+  }
 
   /**
    * Tests are written using the @Test annotation
